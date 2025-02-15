@@ -1,0 +1,122 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #000000; /* Fondo azul oscuro */
+}
+
+.stars, .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: url('stars.png') repeat top center;
+    z-index: 0;
+    animation: moveStars 50s linear infinite;
+}
+
+.twinkling {
+    background: url('twinkling.png') repeat top center;
+    z-index: 1;
+    animation: moveTwinkling 100s linear infinite;
+}
+
+@keyframes moveStars {
+    from {transform: translateY(0);}
+    to {transform: translateY(-1000px);}
+}
+
+@keyframes moveTwinkling {
+    from {transform: translateY(0);}
+    to {transform: translateY(-2000px);}
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+    position: relative;
+    color: white;
+}
+
+.character {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.character img {
+    width: 150px;
+    height: auto;
+}
+
+.dialogue {
+    margin: 20px 0;
+    background: black;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    background: black;
+    color: white;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+}
+
+.buttons button:hover {
+    background: white;
+    color: black;
+}
+
+#button1 {
+    border-color: #4CAF50;
+}
+
+#button2 {
+    border-color: #f44336;
+}
+
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: moveStar 5s linear infinite, rotateStar 2s linear infinite;
+}
+
+@keyframes moveStar {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(100vw) translateY(100vh); }
+}
+
+@keyframes rotateStar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
